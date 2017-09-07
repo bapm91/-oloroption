@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Coloroption</string>
+    <string name="start_color_value">128</string>
+    <string name="color_name_b">B</string>
+    <string name="color_name_g">G</string>
+    <string name="color_name_r">R</string>
+    <string name="color_image_view">Color result</string>
 </resources>
