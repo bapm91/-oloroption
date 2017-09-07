@@ -54,10 +54,18 @@ public class MainActivity extends AppCompatActivity {
 
     private String getColorValue() {
         String result = "#"
-                + Integer.toHexString(valueRed)
-                + Integer.toHexString(valueGreen)
-                + Integer.toHexString(valueBlue);
+                + toColorHex(valueRed)
+                + toColorHex(valueGreen)
+                + toColorHex(valueBlue);
         return result.toUpperCase();
+    }
+
+    private String toColorHex(int value){
+        if (value == 0){
+            return "00";
+        } else {
+            return Integer.toHexString(value);
+        }
     }
 
     private final SeekBar.OnSeekBarChangeListener seekBarListenerRed =
