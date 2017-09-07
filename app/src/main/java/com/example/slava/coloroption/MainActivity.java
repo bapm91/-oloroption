@@ -14,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView textRed;
     private TextView textGreen;
     private TextView textBlue;
+    private SeekBar seekGreen;
+    private SeekBar seekBlue;
+    private SeekBar seekRed;
     private int valueRed;
     private int valueGreen;
     private int valueBlue;
@@ -26,20 +29,25 @@ public class MainActivity extends AppCompatActivity {
         valueRed = 128;
         valueGreen = 128;
         valueBlue = 128;
+        findViews();
 
-        imageView = (ImageView) findViewById(R.id.color_image);
-        textRed = (TextView) findViewById(R.id.value_red);
-        textGreen = (TextView) findViewById(R.id.value_green);
-        textBlue = (TextView) findViewById(R.id.value_blue);
-
-        SeekBar seekRed = (SeekBar) findViewById(R.id.seekBarRed);
-        SeekBar seekGreen = (SeekBar) findViewById(R.id.seekBarGreen);
-        SeekBar seekBlue = (SeekBar) findViewById(R.id.seekBarBlue);
 
         seekRed.setOnSeekBarChangeListener(seekBarListenerRed);
         seekGreen.setOnSeekBarChangeListener(seekBarListenerGreen);
         seekBlue.setOnSeekBarChangeListener(seekBarListenerBlue);
 
+    }
+
+    private void findViews() {
+        imageView = (ImageView) findViewById(R.id.color_image);
+
+        textRed = (TextView) findViewById(R.id.value_red);
+        textGreen = (TextView) findViewById(R.id.value_green);
+        textBlue = (TextView) findViewById(R.id.value_blue);
+
+        seekRed = (SeekBar) findViewById(R.id.seekBarRed);
+        seekGreen = (SeekBar) findViewById(R.id.seekBarGreen);
+        seekBlue = (SeekBar) findViewById(R.id.seekBarBlue);
     }
 
     private final SeekBar.OnSeekBarChangeListener seekBarListenerRed =
