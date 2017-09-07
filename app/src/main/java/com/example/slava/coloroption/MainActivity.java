@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        findViews();
+
         valueRed = 128;
         valueGreen = 128;
         valueBlue = 128;
@@ -50,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
         seekBlue = (SeekBar) findViewById(R.id.seekBarBlue);
     }
 
+    private String getColorValue() {
+        String result = "#"
+                + Integer.toHexString(valueRed)
+                + Integer.toHexString(valueGreen)
+                + Integer.toHexString(valueBlue);
+        return result.toUpperCase();
+    }
+
     private final SeekBar.OnSeekBarChangeListener seekBarListenerRed =
             new SeekBar.OnSeekBarChangeListener() {
                 // Обновление процента чаевых и вызов calculate
@@ -60,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
                     textRed.setText(String.valueOf(valueRed));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         imageView.setBackgroundColor(Color.argb(255, valueRed, valueGreen, valueBlue));
+                    } else {
+                        imageView.setBackgroundColor(Color.parseColor(getColorValue()));
                     }
                 }
 
@@ -82,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
                     textGreen.setText(String.valueOf(valueGreen));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         imageView.setBackgroundColor(Color.argb(255, valueRed, valueGreen, valueBlue));
+                    } else {
+                        imageView.setBackgroundColor(Color.parseColor(getColorValue()));
                     }
                 }
 
@@ -103,6 +117,8 @@ public class MainActivity extends AppCompatActivity {
                     textBlue.setText(String.valueOf(valueBlue));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         imageView.setBackgroundColor(Color.argb(255, valueRed, valueGreen, valueBlue));
+                    } else {
+                        imageView.setBackgroundColor(Color.parseColor(getColorValue()));
                     }
                 }
 
