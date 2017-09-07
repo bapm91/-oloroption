@@ -2,8 +2,8 @@ package com.example.slava.coloroption;
 
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -60,12 +60,13 @@ public class MainActivity extends AppCompatActivity {
         return result.toUpperCase();
     }
 
-    private String toColorHex(int value){
-        if (value == 0){
-            return "00";
-        } else {
-            return Integer.toHexString(value);
+    private String toColorHex(int value) {
+        String res = "";
+        if (value <= 15) {
+            res = "0";
         }
+        res += Integer.toHexString(value);
+        return res;
     }
 
     private final SeekBar.OnSeekBarChangeListener seekBarListenerRed =
